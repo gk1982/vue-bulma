@@ -7,17 +7,20 @@
   <script src="js/vue.js"></script>
   <body>
     <section class="section" id="hello-world-app">
+    <h1 class="bd-notification is-primary">Aplikacja szyfrujaca wpisywany tekst.</h1>
       <div class="columns">
         <div class="column is-half">
+        
           <div class="container">
-            <h1>Wpisz swój tekst do zaszyfrowania:</h1>
+            
+            <p class="bd-notification is-info">Wpisz swój tekst do zaszyfrowania:</p>
             <div class="control is-loading">
             <input class="input" type="text" v-model="msg" placeholder="tajna wiadomość">
             </div>
           </div>
         </div>
         <div class="column is-half">
-        <p>Wiadomość zaszyfrowana:</p>
+        <p class="bd-notification is-info">Wiadomość zaszyfrowana:</p>
         <div class="control">
         <div class="tags are-large">
           <span class="tag">{{ msg | reverse }}</span>
