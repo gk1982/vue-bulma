@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="img/icon.png">
+    <title>Ciąg Fibonacciego</title>
+    <link rel="stylesheet" type="text/css" href="css/bulma.css">
+    <script src="js/vue.js"></script>
+  </head>
+  <body>
+    <section class="section" id="hello-world-app">
+      <h1 class="bd-notification is-primary">Kalkulator liczb Fibonacciego.</h1>
+      <div class="columns">
+        <div class="column is-half">
+          
+          <div class="container">
+            
+            <p class="bd-notification is-info">Wpisz n:</p>
+            <div class="control">
+              <input class="input" type="number" v-model="msg" placeholder="">
+            </div>
+          </div>
+        </div>
+        <div class="column is-half">
+          <p class="bd-notification is-info">Wynik:</p>
+          <div class="control">
+            <div>
+              <label>{{ msg | fibonacci }}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      new Vue({
+      el: "#hello-world-app",
+      data() {
+    return {
+    msg: "0"
+    }
+    },
+    filters: {
+    fibonacci: function(data) {
+    var i;
+      var fib = [];
+      var result = [];
+
+      fib[0] = 0;
+      fib[1] = 1;
+      for (i = 2; i < data; i++) {
+        // Next fibonacci number = previous + one before previous
+        fib[i] = fib[i - 2] + fib[i - 1];
+        result.push(fib[i]);
+      }
+      result.unshift(1);
+      result.unshift(0);
+      
+      return result;
+    }
+    }
+    
+    });
+  </script>
+</body>
+</html>
