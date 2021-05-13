@@ -24,8 +24,8 @@
         <div class="column is-half">
           <p class="bd-notification is-info">Wynik:</p>
           <div class="control">
-            <div>
-              <label>{{ msg | fibonacci }}</label>
+            <div class="tags are-large">
+              <span class="tag">{{ msg | fibonacci }}</span>
             </div>
           </div>
         </div>
@@ -35,31 +35,26 @@
       new Vue({
       el: "#hello-world-app",
       data() {
-    return {
-    msg: "0"
-    }
-    },
-    filters: {
-    fibonacci: function(data) {
-    var i;
-      var fib = [];
-      var result = [];
-
-      fib[0] = 0;
-      fib[1] = 1;
-      for (i = 2; i < data; i++) {
-        // Next fibonacci number = previous + one before previous
-        fib[i] = fib[i - 2] + fib[i - 1];
-        result.push(fib[i]);
+      return {
+      msg: "0"
       }
-      result.unshift(1);
-      result.unshift(0);
+      },
+      filters: {
+      fibonacci: function(data) {
+      var a = 1, b = 0, temp;
       
-      return result;
-    }
-    }
-    
-    });
-  </script>
-</body>
+      while (data > 0){
+      temp = a;
+      a = a + b;
+      b = temp;
+      data--;
+      }
+      
+      return b;
+      }
+      }
+      
+      });
+    </script>
+  </body>
 </html>
